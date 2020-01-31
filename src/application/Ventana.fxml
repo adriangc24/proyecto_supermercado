@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="608.0" minWidth="1183.0" prefHeight="608.0" prefWidth="1183.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controlador">
+   <children>
+      <Circle fill="DODGERBLUE" layoutX="914.0" layoutY="224.0" onMouseClicked="#mostrar" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+      <TextField fx:id="txtNombre" layoutX="204.0" layoutY="116.0" prefHeight="35.0" prefWidth="226.0" />
+      <Text layoutX="71.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" wrappingWidth="115.6708984375" />
+      <TextField fx:id="txtApellidos" layoutX="204.0" layoutY="206.0" prefHeight="35.0" prefWidth="226.0" />
+      <Text layoutX="71.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellidos" wrappingWidth="115.6708984375" />
+      <TextField fx:id="txtEdad" layoutX="204.0" layoutY="287.0" prefHeight="35.0" prefWidth="226.0" />
+      <Text layoutX="71.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edad" wrappingWidth="115.6708984375" />
+      <RadioButton fx:id="rbHombre" layoutX="204.0" layoutY="430.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Hombre">
+         <toggleGroup>
+            <ToggleGroup fx:id="sexo" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rbMujer" layoutX="204.0" layoutY="374.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Mujer" toggleGroup="$sexo" />
+   </children>
+</AnchorPane>
