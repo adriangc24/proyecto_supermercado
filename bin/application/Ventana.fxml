@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -8,20 +9,38 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="608.0" minWidth="1183.0" prefHeight="608.0" prefWidth="1183.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controlador">
+<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #3D3937;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controlador">
    <children>
-      <Circle fill="DODGERBLUE" layoutX="914.0" layoutY="224.0" onMouseClicked="#mostrar" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
-      <TextField fx:id="txtNombre" layoutX="204.0" layoutY="116.0" prefHeight="35.0" prefWidth="226.0" />
-      <Text layoutX="71.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" wrappingWidth="115.6708984375" />
-      <TextField fx:id="txtApellidos" layoutX="204.0" layoutY="206.0" prefHeight="35.0" prefWidth="226.0" />
-      <Text layoutX="71.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellidos" wrappingWidth="115.6708984375" />
-      <TextField fx:id="txtEdad" layoutX="204.0" layoutY="287.0" prefHeight="35.0" prefWidth="226.0" />
-      <Text layoutX="71.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edad" wrappingWidth="115.6708984375" />
-      <RadioButton fx:id="rbHombre" layoutX="204.0" layoutY="430.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Hombre">
-         <toggleGroup>
-            <ToggleGroup fx:id="sexo" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="rbMujer" layoutX="204.0" layoutY="374.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Mujer" toggleGroup="$sexo" />
+      <Text fill="WHITE" layoutX="500.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenido al gestor de supermercado " textAlignment="CENTER" wrappingWidth="919.6708984375">
+         <font>
+            <Font name="Consolas Bold" size="73.0" />
+         </font>
+      </Text>
+      <Button fx:id="botonLogin" layoutX="512.0" layoutY="319.0" mnemonicParsing="false" prefHeight="138.0" prefWidth="179.0" style="-fx-background-color: transparent;" />
+      <ImageView fx:id="imgLogin" fitHeight="121.0" fitWidth="110.0" layoutX="850.0" layoutY="813.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../login-square-arrow-button-outline_icon-icons.com_73220.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtUser" layoutX="590.0" layoutY="457.0" prefHeight="71.0" prefWidth="630.0">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </TextField>
+      <Text fill="WHITE" layoutX="590.0" layoutY="412.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User" wrappingWidth="227.6708984375">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="590.0" layoutY="616.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="227.6708984375">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Text>
+      <PasswordField fx:id="txtPass" layoutX="590.0" layoutY="656.0" prefHeight="71.0" prefWidth="630.0">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </PasswordField>
    </children>
 </AnchorPane>
