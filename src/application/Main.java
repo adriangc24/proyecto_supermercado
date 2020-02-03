@@ -1,10 +1,18 @@
 package application;
 	
+import java.util.Optional;
+
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.BorderPane;
 
 
@@ -19,6 +27,29 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setMaximized(true);
 			primaryStage.show();
+			primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+			    @Override
+			    public void handle(WindowEvent event) {
+			    		System.out.println("closing");
+			    		Alert alert = new Alert(AlertType.WARNING);
+			    	      alert.setTitle("Alerta de cierre");
+			    	      alert.setHeaderText("Seguro que quieres cerrar la ventana?");
+			    	      alert.setContentText("Elige tu opción:");
+			    	      ButtonType buttonTypeOne = new ButtonType("Si");
+			    	      ButtonType buttonTypeCancel = new ButtonType("No", ButtonData.CANCEL_CLOSE);
+			    	      alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeCancel);
+
+			    	      Optional<ButtonType> result = alert.showAndWait();
+			    	      if (result.get() == buttonTypeOne){
+			    	    	  System.out.println("OK");
+			    	    	  primaryStage.close();
+			    	      } else {
+			    	    	  System.out.println("CANCEL");
+
+			    	      }
+			    		event.consume();
+			    }
+			});
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

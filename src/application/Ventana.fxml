@@ -17,7 +17,7 @@
          </font>
       </Text>
       <Button fx:id="botonLogin" layoutX="512.0" layoutY="319.0" mnemonicParsing="false" prefHeight="138.0" prefWidth="179.0" style="-fx-background-color: transparent;" />
-      <ImageView fx:id="imgLogin" fitHeight="121.0" fitWidth="110.0" layoutX="850.0" layoutY="813.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgLogin" fitHeight="121.0" fitWidth="110.0" layoutX="850.0" layoutY="813.0" onMouseClicked="#onClick" onMouseExited="#onReleased" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../login-square-arrow-button-outline_icon-icons.com_73220.png" />
          </image>
