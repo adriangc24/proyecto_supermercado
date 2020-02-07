@@ -27,7 +27,7 @@ public class Controlador implements Initializable{
 	public Button botonLogin;
 	@FXML
 	private ImageView imgLogin;
-	Stage primaryStage;
+	public static Stage primaryStage;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
@@ -39,30 +39,15 @@ public class Controlador implements Initializable{
 		imgLogin.setOpacity(0);
 		
 		System.out.println("Clicked");
+		if(!txtUser.getText().isEmpty()&&!txtPass.getText().isEmpty()) {
+			Main.abrir2Scene();
+		}
 	}
 	@FXML
 	public void onReleased() {
 		imgLogin.setOpacity(100);
 		System.out.println("released");
 
-	}
-	private void closeWindowEvent(WindowEvent event) {
-     if(event.equals(WindowEvent.WINDOW_CLOSE_REQUEST)) {
-    	 System.out.println("Window closing");
-    	 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-         alert.getButtonTypes().remove(ButtonType.OK);
-         alert.getButtonTypes().add(ButtonType.CANCEL);
-         alert.getButtonTypes().add(ButtonType.YES);
-         alert.setTitle("Quit application");
-         alert.setContentText(String.format("Close without saving?"));
-         Optional<ButtonType> res = alert.showAndWait();
-
-         if(res.isPresent()) {
-             if(res.get().equals(ButtonType.CANCEL))
-                 event.consume();
-         }
-     }
-     
 	}
 	
 
