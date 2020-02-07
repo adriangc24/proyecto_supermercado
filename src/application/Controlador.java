@@ -27,6 +27,7 @@ public class Controlador implements Initializable{
 	public Button botonLogin;
 	@FXML
 	private ImageView imgLogin;
+	public static String usuario;
 	public static Stage primaryStage;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -40,6 +41,7 @@ public class Controlador implements Initializable{
 		
 		System.out.println("Clicked");
 		if(!txtUser.getText().isEmpty()&&!txtPass.getText().isEmpty()) {
+			usuario=txtUser.getText();
 			Main.abrir2Scene();
 		}
 	}
