@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.shape.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #3D3937;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controlador">
+<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #3D3937;" xmlns="http://javafx.com/javafx/8.0.231" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controlador">
    <children>
       <Text fill="WHITE" layoutX="500.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenido al gestor de supermercado " textAlignment="CENTER" wrappingWidth="919.6708984375">
          <font>
             <Font name="Consolas Bold" size="73.0" />
          </font>
       </Text>
-      <Button fx:id="botonLogin" layoutX="512.0" layoutY="319.0" mnemonicParsing="false" prefHeight="138.0" prefWidth="179.0" style="-fx-background-color: transparent;" />
       <ImageView fx:id="imgLogin" fitHeight="121.0" fitWidth="110.0" layoutX="850.0" layoutY="813.0" onMouseClicked="#onClick" onMouseExited="#onReleased" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../login-square-arrow-button-outline_icon-icons.com_73220.png" />

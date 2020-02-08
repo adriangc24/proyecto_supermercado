@@ -19,6 +19,7 @@ import javafx.scene.layout.BorderPane;
 public class Main extends Application {
 	static Stage stagePrincipal;
 	static Class clase;
+	static Scene scene;
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -27,7 +28,7 @@ public class Main extends Application {
 			// BorderPane root = new BorderPane();
 			// 1st Stage
 			Parent root = FXMLLoader.load(getClass().getResource("Ventana.fxml"));
-			Scene scene = new Scene(root, 400, 400);
+			scene = new Scene(root, 400, 400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stagePrincipal.setScene(scene);
 			stagePrincipal.setMaximized(true);
@@ -75,6 +76,22 @@ public class Main extends Application {
 		}
 	
 	}
+	public static void cerrar2Scene() {
+		Parent root;
+		try {
+			root = FXMLLoader.load(clase.getResource("Ventana.fxml"));
+			Scene scene = new Scene(root, 1920, 1080);
+			scene.getStylesheets().add(clase.getResource("application.css").toExternalForm());
+			stagePrincipal.setScene(scene);
+			stagePrincipal.setMaximized(true);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
 
 	public static void main(String[] args) {
 		launch(args);

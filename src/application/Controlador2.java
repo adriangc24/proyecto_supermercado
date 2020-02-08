@@ -1,5 +1,6 @@
 package application;
 
+
 import java.net.URL;
 import java.time.Instant;
 import java.util.Optional;
@@ -17,6 +18,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
@@ -30,7 +32,7 @@ public class Controlador2 implements Initializable{
 	
 	static Stage secondStage;
 	@FXML
-	Menu cerrarSesion;
+	MenuItem cerrarSesion;
 	@FXML
 	public Text txtBienvenida;
 	
@@ -38,13 +40,10 @@ public class Controlador2 implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		String fecha=Instant.now().toString();
 		txtBienvenida.setText(txtBienvenida.getText()+Controlador.usuario+" !\n\nFecha actual: "+fecha.substring(0,fecha.length()-14));
-		
-		
-	
 	}
 
-
-	public static void logOut() {
+	@FXML
+	public void logOut() {
 		System.out.println("LogOut");
 		Alert alert = new Alert(AlertType.WARNING);
 		alert.setTitle("Alerta de cierre de sesion");
@@ -57,11 +56,16 @@ public class Controlador2 implements Initializable{
 		Optional<ButtonType> result = alert.showAndWait();
 		if (result.get() == buttonTypeOne) {
 			System.out.println("OK");
-			secondStage.close();
+			//secondStage.close();
+			Main.cerrar2Scene();
 		} else {
 			System.out.println("CANCEL");
 
 		}
+	}
+	@FXML
+	public void addProducts() {
+		
 	}
 	
 
