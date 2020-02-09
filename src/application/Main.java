@@ -20,14 +20,16 @@ public class Main extends Application {
 	static Stage stagePrincipal;
 	static Class clase;
 	static Scene scene;
+	static Stage stage;
+	static Parent root;
+
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 			stagePrincipal = primaryStage;
 			clase = getClass();
 			// BorderPane root = new BorderPane();
-			// 1st Stage
-			Parent root = FXMLLoader.load(getClass().getResource("Ventana.fxml"));
+			root = FXMLLoader.load(getClass().getResource("Ventana.fxml"));
 			scene = new Scene(root, 400, 400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stagePrincipal.setScene(scene);
@@ -61,10 +63,9 @@ public class Main extends Application {
 		}
 	}
 
-	public static void abrir2Scene() {
-		// 2nd Scene
+	public static void abrir2Scene(int numeroVentana) {
 		try {
-			Parent root2 = FXMLLoader.load(clase.getResource("Ventana2.fxml"));
+			Parent root2 = FXMLLoader.load(clase.getResource("Ventana" + numeroVentana + ".fxml"));
 			Scene scene2 = new Scene(root2, 1920, 1080);
 			scene2.getStylesheets().add(clase.getResource("application.css").toExternalForm());
 			stagePrincipal.setScene(scene2);
@@ -74,8 +75,9 @@ public class Main extends Application {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
+
 	}
+
 	public static void cerrar2Scene() {
 		Parent root;
 		try {
@@ -84,14 +86,35 @@ public class Main extends Application {
 			scene.getStylesheets().add(clase.getResource("application.css").toExternalForm());
 			stagePrincipal.setScene(scene);
 			stagePrincipal.setMaximized(true);
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
+	public static void abrirVentana(int numeroVentana) {
+		try {
+			root = FXMLLoader.load(clase.getResource("Ventana" + numeroVentana + ".fxml"));
+			stage = new Stage();
+			stage.setResizable(false);
+			stage.setScene(new Scene(root, 875, 680));
+			stage.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void cerrarVentana(int numeroVentana) {
+		try {
+			root = FXMLLoader.load(clase.getResource("Ventana" + numeroVentana + ".fxml"));
+			stage.setScene(new Scene(root, 875, 680));
+			stage.close();
+		} catch (Exception e) {
+			System.out.println("No se pudo cerrar la ventana");
+		}
+	}
 
 	public static void main(String[] args) {
 		launch(args);

@@ -43,7 +43,7 @@ public class Controlador implements Initializable{
 		System.out.println("Clicked");
 		if(!txtUser.getText().isEmpty()&&!txtPass.getText().isEmpty()) {
 			usuario=txtUser.getText();
-			Main.abrir2Scene();
+			Main.abrir2Scene(2);
 		}
 	}
 	@FXML

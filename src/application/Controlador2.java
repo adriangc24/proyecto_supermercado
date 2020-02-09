@@ -56,7 +56,6 @@ public class Controlador2 implements Initializable{
 		Optional<ButtonType> result = alert.showAndWait();
 		if (result.get() == buttonTypeOne) {
 			System.out.println("OK");
-			//secondStage.close();
 			Main.cerrar2Scene();
 		} else {
 			System.out.println("CANCEL");
@@ -64,8 +63,8 @@ public class Controlador2 implements Initializable{
 		}
 	}
 	@FXML
-	public void addProducts() {
-		
+	public void manageProducts() {
+		Main.abrir2Scene(3);
 	}
 	
 

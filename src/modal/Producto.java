@@ -83,6 +83,13 @@ public class Producto {
 	public void setFechaVencimiento(Date fechaVencimiento) {
 		this.fechaVencimiento = fechaVencimiento;
 	}
+	@Override
+	public String toString() {
+		return "id: " + id + " | nombre: " + nombre + " | descripcion: " + descripcion + " | precioSinIva: "
+				+ precioSinIva + " | cantidad: " + cantidad + " | categoria: " + categoria + " | marca: " + marca
+				+ " | fechaVencimiento: " + fechaVencimiento;
+	}
+	
 	
 	
 	
