@@ -115,21 +115,29 @@ public class Controlador4 implements Initializable {
 		if (!txtDescripcion.getText().isEmpty()) {
 			p.setDescripcion(txtDescripcion.getText());
 		}
-		if (!txtPrecioSinIva.getText().isEmpty()) {
+		if (!txtPrecioSinIva.getText().isEmpty()&&txtPrecioSinIva.getText().matches(".*\\d.*")) {
 			p.setPrecioSinIva(Float.valueOf(txtPrecioSinIva.getText()));
 		}
-		if (!txtCantidad.getText().isEmpty()) {
+		if (!txtCantidad.getText().isEmpty()&&txtCantidad.getText().matches(".*\\d.*")) {
 			p.setCantidad(Integer.valueOf(txtCantidad.getText()));
 		}
 		if (!txtCategoria.getText().isEmpty()) {
 			p.setCategoria(txtCategoria.getText());
 		}
 		if (!txtFechaVencimiento.getText().isEmpty()) {
-			p.setFechaVencimiento(Date.valueOf(txtFechaVencimiento.getText()));
+			try {
+				p.setFechaVencimiento(Date.valueOf(txtFechaVencimiento.getText()));
+			} catch (Exception e) {
+				p.setFechaVencimiento(p.getFechaVencimiento());
+			}
 		}
 
 		Controlador3.productsList.set(p.getId(), p);
-		Main.cerrarVentana(4);
+
+		// Para recargar listView deberemos reiniciar la escena
+		Main.cerrarScene(3);
+		Main.abrir2Scene(3);
+
 	}
 
 	@FXML

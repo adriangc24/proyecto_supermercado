@@ -89,6 +89,9 @@ public class Producto {
 				+ precioSinIva + " | cantidad: " + cantidad + " | categoria: " + categoria + " | marca: " + marca
 				+ " | fechaVencimiento: " + fechaVencimiento;
 	}
+	public Producto() {
+		super();
+	}
 	
 	
 	

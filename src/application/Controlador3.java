@@ -49,12 +49,16 @@ public class Controlador3 implements Initializable {
 	static int selecSingIndex;
 	static ArrayList<Producto> productsList = new ArrayList();
 	static ObservableList<String> productos = FXCollections.observableArrayList();
+	int tam;
+	
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		listaProductos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
-		if (productsList.isEmpty()) {
+		if (productsList.isEmpty() && Main.contador==0) {
+			System.out.println(String.valueOf(Main.contador));
+			Main.contador+=1;
+			System.out.println("creando productos");
 			// creamos objetos productos
 			Producto p0 = new Producto(0, "Atún calvo", "Atún con aceite de girasol", 2.50f, 3, "pescados", "calvo",
 					Date.valueOf("2020-05-23"));
@@ -71,17 +75,22 @@ public class Controlador3 implements Initializable {
 			Producto p4 = new Producto(4, "Banana", "Kilo Banana canaria", 0.8f, 1, "frutas y verduras",
 					"platano de canarias", Date.valueOf("2020-02-30"));
 			productsList.add(p4);
-		}
-		else {
+		} else {
 			productos.clear();
 		}
+		recargarLista();
+	}
+
+	public void recargarLista() {
+		if (productsList.isEmpty()) {
+			System.out.println("Array prods vacio");
+		} else {
 			for (Producto x : productsList) {
 				productos.add(x.toString());
 			}
-		
-		listaProductos.setItems(productos);
 
-
+			listaProductos.setItems(productos);
+		}
 	}
 
 	@FXML
@@ -109,7 +118,7 @@ public class Controlador3 implements Initializable {
 
 	@FXML
 	public void addProduct() {
-		Main.abrirVentana(4);
+		Main.abrirVentana(5);
 	}
 
 	@FXML
@@ -126,6 +135,15 @@ public class Controlador3 implements Initializable {
 		listaProductos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 		seleccion = listaProductos.getSelectionModel();
 		selecIndex = seleccion.getSelectedIndices();
-
+		tam = selecIndex.size();
+		int indice = 0;
+		for (int i = tam - 1; i >= 0; i--) {
+			indice = selecIndex.get(i);
+			productsList.remove(indice);
+			productos.remove(indice);
+		}
+		recargarLista();
+		Main.cerrarScene(3);
+		Main.abrir2Scene(3);
 	}
 }

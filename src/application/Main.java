@@ -22,7 +22,8 @@ public class Main extends Application {
 	static Scene scene;
 	static Stage stage;
 	static Parent root;
-
+	static int contador = 0;
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -82,6 +83,22 @@ public class Main extends Application {
 		Parent root;
 		try {
 			root = FXMLLoader.load(clase.getResource("Ventana.fxml"));
+			Scene scene = new Scene(root, 1920, 1080);
+			scene.getStylesheets().add(clase.getResource("application.css").toExternalForm());
+			stagePrincipal.setScene(scene);
+			stagePrincipal.setMaximized(true);
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	public static void cerrarScene(int numeroVentana) {
+		Parent root;
+		try {
+			root = FXMLLoader.load(clase.getResource("Ventana"+numeroVentana+".fxml"));
 			Scene scene = new Scene(root, 1920, 1080);
 			scene.getStylesheets().add(clase.getResource("application.css").toExternalForm());
 			stagePrincipal.setScene(scene);
