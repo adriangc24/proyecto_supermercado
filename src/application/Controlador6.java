@@ -25,6 +25,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
@@ -34,15 +35,16 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import modal.Persona;
 import modal.Producto;
 
-public class Controlador3 implements Initializable {
+public class Controlador6 implements Initializable {
 
 	static Stage thirdStage;
 	@FXML
 	ImageView backButton;
 	@FXML
-	ListView listaProductos;
+	TableView<Persona> tabla;
 	static Producto p;
 	static MultipleSelectionModel<String> seleccion;
 	static ObservableList<Integer> selecIndex;
@@ -54,43 +56,7 @@ public class Controlador3 implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		listaProductos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-		if (productsList.isEmpty() && Main.contador==0) {
-			System.out.println(String.valueOf(Main.contador));
-			Main.contador+=1;
-			System.out.println("creando productos");
-			// creamos objetos productos
-			Producto p0 = new Producto(0, "Atún calvo", "Atún con aceite de girasol", 2.50f, 3, "pescados", "calvo",
-					Date.valueOf("2020-05-23"));
-			productsList.add(p0);
-			Producto p1 = new Producto(1, "Ganchitos", "Snack de queso", 1.2f, 1, "snacks", "cheetos",
-					Date.valueOf("2020-09-08"));
-			productsList.add(p1);
-			Producto p2 = new Producto(2, "Gambas", "Kilo de gambas de huelva", 12f, 1, "pescados y mariscos",
-					"pescanova", Date.valueOf("2020-02-19"));
-			productsList.add(p2);
-			Producto p3 = new Producto(3, "Nutella", "Crema de chocolate", 2.0f, 1, "snacks", "ferrero",
-					Date.valueOf("2025-11-03"));
-			productsList.add(p3);
-			Producto p4 = new Producto(4, "Banana", "Kilo Banana canaria", 0.8f, 1, "frutas y verduras",
-					"platano de canarias", Date.valueOf("2020-02-30"));
-			productsList.add(p4);
-		} else {
-			productos.clear();
-		}
-		recargarLista();
-	}
-
-	public void recargarLista() {
-		if (productsList.isEmpty()) {
-			System.out.println("Array prods vacio");
-		} else {
-			for (Producto x : productsList) {
-				productos.add(x.toString());
-			}
-
-			listaProductos.setItems(productos);
-		}
+		
 	}
 
 	@FXML
@@ -117,28 +83,21 @@ public class Controlador3 implements Initializable {
 	}
 
 	@FXML
-	public void addProduct() {
+	public void addWorker() {
 		Main.abrirVentana(5);
 	}
 
 	@FXML
-	public void editProduct() {
-		listaProductos.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-		seleccion = listaProductos.getSelectionModel();
+	public void editWorker() {
+		tabla.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 		selecSingIndex = seleccion.getSelectedIndex();
-		if(seleccion.isEmpty()) {
-			System.out.println("Seleccion vacia");
-		}
-		else {
-			Main.abrirVentana(4);
-		}
+		Main.abrirVentana(4);
 
 	}
 
 	@FXML
-	public void deleteProduct() {
-		listaProductos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-		seleccion = listaProductos.getSelectionModel();
+	public void deleteWorker() {
+		tabla.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 		selecIndex = seleccion.getSelectedIndices();
 		tam = selecIndex.size();
 		int indice = 0;
@@ -147,7 +106,6 @@ public class Controlador3 implements Initializable {
 			productsList.remove(indice);
 			productos.remove(indice);
 		}
-		recargarLista();
 		Main.cerrarScene(3);
 		Main.abrir2Scene(3);
 	}

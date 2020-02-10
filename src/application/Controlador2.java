@@ -66,6 +66,10 @@ public class Controlador2 implements Initializable{
 	public void manageProducts() {
 		Main.abrir2Scene(3);
 	}
+	@FXML
+	public void manageWorkers() {
+		Main.abrir2Scene(6);
+	}
 	
 
 }

@@ -11,9 +11,15 @@ public class Persona {
 	String pass;
 	Date fechaNacimiento;
 	String puestoTrabajo;
+	boolean trabajando;
+	boolean sexo;
+	
+	public Persona() {
+		super();
+	}
 
 	public Persona(int id, String dni, String nombre, String apellidos, String user, String pass, Date fechaNacimiento,
-			String puestoTrabajo) {
+			String puestoTrabajo, boolean trabajando, boolean sexo) {
 		super();
 		this.id = id;
 		this.dni = dni;
@@ -23,6 +29,22 @@ public class Persona {
 		this.pass = pass;
 		this.fechaNacimiento = fechaNacimiento;
 		this.puestoTrabajo = puestoTrabajo;
+		this.trabajando = trabajando;
+		this.sexo = sexo;
+	}
+
+	public Persona(String dni, String nombre, String apellidos, String user, String pass, Date fechaNacimiento,
+			String puestoTrabajo, boolean trabajando, boolean sexo) {
+		super();
+		this.dni = dni;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.user = user;
+		this.pass = pass;
+		this.fechaNacimiento = fechaNacimiento;
+		this.puestoTrabajo = puestoTrabajo;
+		this.trabajando = trabajando;
+		this.sexo = sexo;
 	}
 
 	public int getId() {
@@ -88,5 +110,27 @@ public class Persona {
 	public void setPuestoTrabajo(String puestoTrabajo) {
 		this.puestoTrabajo = puestoTrabajo;
 	}
+
+	public boolean isTrabajando() {
+		return trabajando;
+	}
+
+	public void setTrabajando(boolean trabajando) {
+		this.trabajando = trabajando;
+	}
+
+	public boolean isSexo() {
+		return sexo;
+	}
+
+	public void setSexo(boolean sexo) {
+		this.sexo = sexo;
+	}
+	
+	
+	
+	
+	
+	
 
 }
