@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Optional;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -23,7 +24,7 @@ public class Main extends Application {
 	static Stage stage;
 	static Parent root;
 	static int contador = 0;
-	
+
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -52,6 +53,10 @@ public class Main extends Application {
 					if (result.get() == buttonTypeOne) {
 						System.out.println("OK");
 						primaryStage.close();
+						// debemos cerrar el programa entero para que en caso de que haya otros stages abiertos se cierren
+						Platform.exit();
+						System.exit(0);
+
 					} else {
 						System.out.println("CANCEL");
 
@@ -98,7 +103,7 @@ public class Main extends Application {
 	public static void cerrarScene(int numeroVentana) {
 		Parent root;
 		try {
-			root = FXMLLoader.load(clase.getResource("Ventana"+numeroVentana+".fxml"));
+			root = FXMLLoader.load(clase.getResource("Ventana" + numeroVentana + ".fxml"));
 			Scene scene = new Scene(root, 1920, 1080);
 			scene.getStylesheets().add(clase.getResource("application.css").toExternalForm());
 			stagePrincipal.setScene(scene);

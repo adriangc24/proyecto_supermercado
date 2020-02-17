@@ -133,7 +133,7 @@ public class Controlador7 implements Initializable {
 				if(txtFechaNacimiento.getText().contains("/")) {
 					txtFechaNacimiento.getText().replaceAll("/", "-");
 				}
-				p.setFechaNacimiento(Date.valueOf(txtFechaNacimiento.getText()));
+				p.setFechaNacimiento(txtFechaNacimiento.getText());
 			} catch (Exception e) {
 				System.out.println("Default date");
 				p.setFechaNacimiento(p.getFechaNacimiento());

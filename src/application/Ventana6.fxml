@@ -36,8 +36,14 @@
       </AnchorPane>
       <TableView fx:id="tabla" layoutX="193.0" layoutY="139.0" prefHeight="670.0" prefWidth="1137.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="idPersona" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="dniPersona" prefWidth="75.0" text="DNI" />
+            <TableColumn fx:id="nombrePersona" prefWidth="180.0" text="Nombre" />
+            <TableColumn fx:id="apellidosPersona" prefWidth="167.0" text="Apellidos" />
+            <TableColumn fx:id="userPersona" prefWidth="155.0" text="User" />
+            <TableColumn fx:id="fechaPersona" prefWidth="137.0" text="Fecha Nacimiento" />
+            <TableColumn fx:id="puestoPersona" prefWidth="207.0" text="Puesto" />
+            <TableColumn fx:id="trabajandoPersona" minWidth="0.0" prefWidth="140.0" text="Trabajando?" />
         </columns>
       </TableView>
    </children>

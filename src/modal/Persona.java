@@ -1,6 +1,9 @@
 package modal;
 
+import java.awt.Checkbox;
 import java.sql.Date;
+
+import javafx.scene.control.CheckBox;
 
 public class Persona {
 	int id;
@@ -9,17 +12,17 @@ public class Persona {
 	String apellidos;
 	String user;
 	String pass;
-	Date fechaNacimiento;
+	String fechaNacimiento;
 	String puestoTrabajo;
-	boolean trabajando;
-	boolean sexo;
+	CheckBox trabajando;
+	String sexo;
 	
 	public Persona() {
 		super();
 	}
 
-	public Persona(int id, String dni, String nombre, String apellidos, String user, String pass, Date fechaNacimiento,
-			String puestoTrabajo, boolean trabajando, boolean sexo) {
+	public Persona(int id, String dni, String nombre, String apellidos, String user, String pass, String fechaNacimiento,
+			String puestoTrabajo, CheckBox trabajando, String sexo) {
 		super();
 		this.id = id;
 		this.dni = dni;
@@ -29,12 +32,12 @@ public class Persona {
 		this.pass = pass;
 		this.fechaNacimiento = fechaNacimiento;
 		this.puestoTrabajo = puestoTrabajo;
-		this.trabajando = trabajando;
+		trabajando = new CheckBox();
 		this.sexo = sexo;
 	}
 
-	public Persona(String dni, String nombre, String apellidos, String user, String pass, Date fechaNacimiento,
-			String puestoTrabajo, boolean trabajando, boolean sexo) {
+	public Persona(String dni, String nombre, String apellidos, String user, String pass, String fechaNacimiento,
+			String puestoTrabajo, CheckBox trabajando, String sexo) {
 		super();
 		this.dni = dni;
 		this.nombre = nombre;
@@ -43,8 +46,21 @@ public class Persona {
 		this.pass = pass;
 		this.fechaNacimiento = fechaNacimiento;
 		this.puestoTrabajo = puestoTrabajo;
-		this.trabajando = trabajando;
+		trabajando=new CheckBox();
 		this.sexo = sexo;
+	}
+	public Persona(int id,String dni, String nombre, String apellidos, String user, String pass, String fechaNacimiento,
+			String puestoTrabajo, CheckBox trabajando) {
+		super();
+		this.id = id;
+		this.dni = dni;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.user = user;
+		this.pass = pass;
+		this.fechaNacimiento = fechaNacimiento;
+		this.puestoTrabajo = puestoTrabajo;
+		trabajando=new CheckBox();
 	}
 
 	public int getId() {
@@ -95,11 +111,11 @@ public class Persona {
 		this.pass = pass;
 	}
 
-	public Date getFechaNacimiento() {
+	public String getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(String fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
@@ -112,18 +128,27 @@ public class Persona {
 	}
 
 	public boolean isTrabajando() {
-		return trabajando;
+		if(trabajando.isSelected())
+		return true;
+		else return false;
 	}
 
-	public void setTrabajando(boolean trabajando) {
+	public void setTrabajando(CheckBox trabajando) {
 		this.trabajando = trabajando;
 	}
+	public static CheckBox setEstado(boolean estado) {
+		CheckBox c = new CheckBox();
+		if(estado) c.setSelected(true);
+		else c.setSelected(false);
+		
+		return c;
+	}
 
-	public boolean isSexo() {
+	public String isSexo() {
 		return sexo;
 	}
 
-	public void setSexo(boolean sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
 	
