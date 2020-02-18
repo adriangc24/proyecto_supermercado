@@ -3,13 +3,13 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/adri/OneDrive/CLASE/AMS2/M7 - INTERFICIES ( DESPEJA )/2/com.lowagie.text-2.1.7.jar"/>
-	<classpathentry kind="lib" path="C:/Users/adri/OneDrive/CLASE/AMS2/M7 - INTERFICIES ( DESPEJA )/2/commons.collections-3.2.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/adri/OneDrive/CLASE/AMS2/M7 - INTERFICIES ( DESPEJA )/2/commons-beanutils-1.8.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/adri/OneDrive/CLASE/AMS2/M7 - INTERFICIES ( DESPEJA )/2/commons-digester-2.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/adri/OneDrive/CLASE/AMS2/M7 - INTERFICIES ( DESPEJA )/2/commons-javaflow.jar"/>
-	<classpathentry kind="lib" path="C:/Users/adri/OneDrive/CLASE/AMS2/M7 - INTERFICIES ( DESPEJA )/2/commons-logging-1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/adri/OneDrive/CLASE/AMS2/M7 - INTERFICIES ( DESPEJA )/2/jasperreports-6.3.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/adri/OneDrive/CLASE/AMS2/M7 - INTERFICIES ( DESPEJA )/2/mysql-connector-java-5.1.40-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/TRIGO/git/proyecto_supermercado/jars/com.lowagie.text-2.1.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/TRIGO/git/proyecto_supermercado/jars/commons.collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/TRIGO/git/proyecto_supermercado/jars/commons-beanutils-1.8.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/TRIGO/git/proyecto_supermercado/jars/commons-digester-2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/TRIGO/git/proyecto_supermercado/jars/commons-javaflow.jar"/>
+	<classpathentry kind="lib" path="C:/Users/TRIGO/git/proyecto_supermercado/jars/commons-logging-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/TRIGO/git/proyecto_supermercado/jars/jasperreports-6.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/TRIGO/git/proyecto_supermercado/jars/mysql-connector-java-5.1.40-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

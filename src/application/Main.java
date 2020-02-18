@@ -53,7 +53,8 @@ public class Main extends Application {
 					if (result.get() == buttonTypeOne) {
 						System.out.println("OK");
 						primaryStage.close();
-						// debemos cerrar el programa entero para que en caso de que haya otros stages abiertos se cierren
+						// debemos cerrar el programa entero para que en caso de que haya otros stages
+						// abiertos se cierren
 						Platform.exit();
 						System.exit(0);
 
@@ -121,7 +122,11 @@ public class Main extends Application {
 			root = FXMLLoader.load(clase.getResource("Ventana" + numeroVentana + ".fxml"));
 			stage = new Stage();
 			stage.setResizable(false);
-			stage.setScene(new Scene(root, 875, 680));
+			if (numeroVentana == 7) {
+				stage.setScene(new Scene(root, 875, 650));
+			} else {
+				stage.setScene(new Scene(root, 875, 680));
+			}
 			stage.show();
 		} catch (IOException e) {
 			e.printStackTrace();

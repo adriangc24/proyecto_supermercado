@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -49,8 +48,6 @@ public class Controlador7 implements Initializable {
 	@FXML
 	Text trabajadorAEditar;
 	@FXML
-	ToggleGroup grupo;
-	@FXML
 	TextField txtNombre3;
 	@FXML
 	TextField txtApellidos;
@@ -65,27 +62,31 @@ public class Controlador7 implements Initializable {
 	@FXML
 	ComboBox puestoTrabajo;
 	@FXML
-	CheckBox trabajando;
-	@FXML
 	RadioButton rbHombre;
 	@FXML
 	RadioButton rbMujer;
-	
+
 	@FXML
 	ImageView okButton3;
 	Persona p = null;
 	int lastId;
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		trabajadorAEditar.setText("Producto a crear: ");
+		puestoTrabajo.getItems().addAll(
+				"caja",
+				"reposicion",
+				"reparticion"
+				);
 		getLastId();
-		System.out.println("Last id: "+lastId);
+		System.out.println("Last id: " + lastId);
 
 	}
+
 	public void getLastId() {
-		lastId=-1;
-		for(Producto x : Controlador3.productsList) {
+		lastId = 0;
+		for (Persona x : Controlador6.personasList) {
 			lastId++;
 		}
 	}
@@ -110,9 +111,9 @@ public class Controlador7 implements Initializable {
 
 	@FXML
 	public void saveWorker() {
-		p=new Persona();
+		p = new Persona();
 		getLastId();
-		p.setId(lastId+1);
+		p.setId(lastId + 1);
 		if (!txtNombre3.getText().isEmpty()) {
 			p.setNombre(txtNombre3.getText());
 		}
@@ -125,7 +126,7 @@ public class Controlador7 implements Initializable {
 		if (!txtUser.getText().isEmpty()) {
 			p.setUser(txtUser.getText());
 		}
-		if (!txtPass.getText().isEmpty()){
+		if (!txtPass.getText().isEmpty()) {
 			p.setPass(txtPass.getText());
 		}
 		if (!txtFechaNacimiento.getText().isEmpty()) {
@@ -133,16 +134,28 @@ public class Controlador7 implements Initializable {
 				if(txtFechaNacimiento.getText().contains("/")) {
 					txtFechaNacimiento.getText().replaceAll("/", "-");
 				}
-				p.setFechaNacimiento(txtFechaNacimiento.getText());
+				p.setFechaNacimiento(Date.valueOf(txtFechaNacimiento.getText()));
 			} catch (Exception e) {
 				System.out.println("Default date");
 				p.setFechaNacimiento(p.getFechaNacimiento());
 			}
 		}
+		if(puestoTrabajo.getValue()!=null) {
+			p.setPuestoTrabajo(puestoTrabajo.getValue().toString());
+		}
+		if(rbHombre.isSelected()) {
+			p.setSexo("Hombre");
+		}
+		else if(rbMujer.isSelected()){
+			p.setSexo("Mujer");
+		}
+		else if(!rbHombre.isSelected()&&!rbMujer.isSelected()) {
+			p.setSexo("No definido");
+		}
 
-		//Controlador3.productsList.add(p);
+		Controlador6.personasList.add(p);
 
-		// Para recargar listView deberemos reiniciar la escena
+		// Para recargar tableView deberemos reiniciar la escena
 		Main.cerrarScene(6);
 		Main.abrir2Scene(6);
 
@@ -156,7 +169,7 @@ public class Controlador7 implements Initializable {
 		txtUser.setText("");
 		txtPass.setText("");
 		txtFechaNacimiento.setText("");
-		//puestoTrabajo.setValue(value);
+		// puestoTrabajo.setValue(value);
 	}
 
 }

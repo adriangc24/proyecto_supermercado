@@ -12,17 +12,17 @@ public class Persona {
 	String apellidos;
 	String user;
 	String pass;
-	String fechaNacimiento;
+	Date fechaNacimiento;
 	String puestoTrabajo;
 	CheckBox trabajando;
 	String sexo;
-	
+
 	public Persona() {
 		super();
 	}
 
-	public Persona(int id, String dni, String nombre, String apellidos, String user, String pass, String fechaNacimiento,
-			String puestoTrabajo, CheckBox trabajando, String sexo) {
+	public Persona(int id, String dni, String nombre, String apellidos, String user, String pass,
+			Date fechaNacimiento, String puestoTrabajo, CheckBox trabajando, String sexo) {
 		super();
 		this.id = id;
 		this.dni = dni;
@@ -36,7 +36,7 @@ public class Persona {
 		this.sexo = sexo;
 	}
 
-	public Persona(String dni, String nombre, String apellidos, String user, String pass, String fechaNacimiento,
+	public Persona(String dni, String nombre, String apellidos, String user, String pass, Date fechaNacimiento,
 			String puestoTrabajo, CheckBox trabajando, String sexo) {
 		super();
 		this.dni = dni;
@@ -46,11 +46,12 @@ public class Persona {
 		this.pass = pass;
 		this.fechaNacimiento = fechaNacimiento;
 		this.puestoTrabajo = puestoTrabajo;
-		trabajando=new CheckBox();
+		trabajando = new CheckBox();
 		this.sexo = sexo;
 	}
-	public Persona(int id,String dni, String nombre, String apellidos, String user, String pass, String fechaNacimiento,
-			String puestoTrabajo, CheckBox trabajando) {
+
+	public Persona(int id, String dni, String nombre, String apellidos, String user, String pass,
+			Date fechaNacimiento, String puestoTrabajo) {
 		super();
 		this.id = id;
 		this.dni = dni;
@@ -60,7 +61,7 @@ public class Persona {
 		this.pass = pass;
 		this.fechaNacimiento = fechaNacimiento;
 		this.puestoTrabajo = puestoTrabajo;
-		trabajando=new CheckBox();
+		trabajando = new CheckBox();
 	}
 
 	public int getId() {
@@ -111,11 +112,11 @@ public class Persona {
 		this.pass = pass;
 	}
 
-	public String getFechaNacimiento() {
+	public Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(String fechaNacimiento) {
+	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
@@ -128,19 +129,28 @@ public class Persona {
 	}
 
 	public boolean isTrabajando() {
-		if(trabajando.isSelected())
-		return true;
-		else return false;
+		if (trabajando != null) {
+			if (trabajando.isSelected())
+				return true;
+			else
+				return false;
+		} else {
+			return false;
+		}
+
 	}
 
 	public void setTrabajando(CheckBox trabajando) {
 		this.trabajando = trabajando;
 	}
+
 	public static CheckBox setEstado(boolean estado) {
 		CheckBox c = new CheckBox();
-		if(estado) c.setSelected(true);
-		else c.setSelected(false);
-		
+		/*if (estado)
+			c.setSelected(true);
+		else
+			c.setSelected(false);*/
+
 		return c;
 	}
 
@@ -151,11 +161,5 @@ public class Persona {
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
-	
-	
-	
-	
-	
-	
 
 }
