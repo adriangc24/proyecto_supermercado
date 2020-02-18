@@ -28,6 +28,8 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellEditEvent;
+import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -183,6 +185,7 @@ public class Controlador6 implements Initializable {
 			tabla.setItems(personas);
 		}
 	}
+	
 
 	@FXML
 	public void volverAtras() {
@@ -214,25 +217,33 @@ public class Controlador6 implements Initializable {
 
 	@FXML
 	public void deleteWorker() {
-		//Persona selectedItem = tabla.getSelectionModel().getSelectedItem();
-	    //tabla.getItems().remove(selectedItem);
 		tabla.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 		seleccion = tabla.getSelectionModel();
-		//selecIndex = seleccion.getSelectedIndices();
 		selecSingIndex = seleccion.getSelectedIndex();
-		/*tam = selecIndex.size();
-		int indice = 0;
-		for (int i = tam - 1; i >= 0; i--) {
-			indice = selecIndex.get(i);
-			personasList.remove(indice);
-			personasList.remove(indice);
-		}*/
 		personasList.remove(selecSingIndex);
 		personas.remove(selecSingIndex);
 	    recargarTabla();
 		
 		Main.cerrarScene(6);
 		Main.abrir2Scene(6);
+
+		// **** MULTIPLE ROW DELETE ????
+		/*tabla.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+		seleccion = tabla.getSelectionModel();
+		selecIndex = seleccion.getSelectedIndices();
+		tam = selecIndex.size();
+		int indice = 0;
+		for (int i = tam - 1; i >= 0; i--) {
+			indice = selecIndex.get(i);
+			personasList.remove(indice);
+			personas.remove(indice);
+		}
+		recargarTabla();
+		
+		Main.cerrarScene(6);
+		Main.abrir2Scene(6);
+		*/
+		
 	}
 
 }

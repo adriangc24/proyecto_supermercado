@@ -14,6 +14,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -37,9 +38,7 @@ public class Controlador implements Initializable{
 	}
 	
 	@FXML
-	public void onClick() {
-		imgLogin.setOpacity(0);
-		
+	public void onClick() {		
 		System.out.println("Clicked");
 		if(!txtUser.getText().isEmpty()&&!txtPass.getText().isEmpty()) {
 			usuario=txtUser.getText();
@@ -47,10 +46,12 @@ public class Controlador implements Initializable{
 		}
 	}
 	@FXML
-	public void onReleased() {
-		imgLogin.setOpacity(100);
-		System.out.println("released");
-
+	public void enter() {
+		imgLogin.setImage(new Image("file:loginFocused.png"));
+	}
+	@FXML
+	public void exit() {
+		imgLogin.setImage(new Image("file:login-square-arrow-button-outline_icon-icons.com_73220.png"));
 	}
 	
 

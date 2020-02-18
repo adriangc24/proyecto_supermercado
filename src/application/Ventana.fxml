@@ -8,14 +8,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #3D3937;" xmlns="http://javafx.com/javafx/8.0.231" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controlador">
+<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #3D3937;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controlador">
    <children>
       <Text fill="WHITE" layoutX="500.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenido al gestor de supermercado " textAlignment="CENTER" wrappingWidth="919.6708984375">
          <font>
             <Font name="Consolas Bold" size="73.0" />
          </font>
       </Text>
-      <ImageView fx:id="imgLogin" fitHeight="121.0" fitWidth="110.0" layoutX="850.0" layoutY="813.0" onMouseClicked="#onClick" onMouseExited="#onReleased" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgLogin" fitHeight="121.0" fitWidth="110.0" layoutX="850.0" layoutY="813.0" onMouseClicked="#onClick" onMouseEntered="#enter" onMouseExited="#exit" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../login-square-arrow-button-outline_icon-icons.com_73220.png" />
          </image>

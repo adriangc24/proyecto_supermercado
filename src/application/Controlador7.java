@@ -87,7 +87,7 @@ public class Controlador7 implements Initializable {
 	public void getLastId() {
 		lastId = 0;
 		for (Persona x : Controlador6.personasList) {
-			lastId++;
+			lastId=x.getId();
 		}
 	}
 
@@ -169,7 +169,7 @@ public class Controlador7 implements Initializable {
 		txtUser.setText("");
 		txtPass.setText("");
 		txtFechaNacimiento.setText("");
-		// puestoTrabajo.setValue(value);
+		puestoTrabajo.setValue("");
 	}
 
 }
