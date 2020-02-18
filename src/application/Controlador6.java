@@ -63,12 +63,13 @@ public class Controlador6 implements Initializable {
 	@FXML
 	TableColumn<Persona, String> userPersona;
 	@FXML
-	TableColumn<Persona, String> fechaPersona;
+	TableColumn<Persona, Date> fechaPersona;
 	@FXML
 	TableColumn<Persona, String> puestoPersona;
 	@FXML
 	TableColumn<Persona, CheckBox> trabajandoPersona;
-
+	
+	boolean aux=false;
 	static Producto p;
 	static MultipleSelectionModel<Persona> seleccion;
 	static ObservableList<Integer> selecIndex;
@@ -76,15 +77,70 @@ public class Controlador6 implements Initializable {
 	static ArrayList<Persona> personasList = new ArrayList();
 	static ObservableList<Persona> personas;
 	int tam;
+	CheckBox si = new CheckBox();
+	CheckBox no = new CheckBox();
+
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		if (Main.contador2==0) {
+		si.setSelected(true);
+		no.setSelected(false);
+		
+		if (Main.contador2 == 0) {
 			System.out.println(Main.contador);
 			cargarDatosDefault();
 		} else
 			cargarDatos();
+
+		nombrePersona.setOnEditCommit(new EventHandler<CellEditEvent<Persona, String>>() {
+			public void handle(CellEditEvent<Persona, String> t) {
+				((Persona) t.getTableView().getItems().get(t.getTablePosition().getRow())).setNombre(t.getNewValue());
+			}
+		});
+		dniPersona.setOnEditCommit(new EventHandler<CellEditEvent<Persona, String>>() {
+			public void handle(CellEditEvent<Persona, String> t) {
+				((Persona) t.getTableView().getItems().get(t.getTablePosition().getRow())).setDni(t.getNewValue());
+			}
+		});
+		apellidosPersona.setOnEditCommit(new EventHandler<CellEditEvent<Persona, String>>() {
+			public void handle(CellEditEvent<Persona, String> t) {
+				((Persona) t.getTableView().getItems().get(t.getTablePosition().getRow())).setApellidos(t.getNewValue());
+			}
+		});
+		userPersona.setOnEditCommit(new EventHandler<CellEditEvent<Persona, String>>() {
+			public void handle(CellEditEvent<Persona, String> t) {
+				((Persona) t.getTableView().getItems().get(t.getTablePosition().getRow())).setUser(t.getNewValue());
+			}
+		});
+		fechaPersona.setOnEditCommit(new EventHandler<CellEditEvent<Persona, Date>>() {
+			public void handle(CellEditEvent<Persona, Date> t) {
+				((Persona) t.getTableView().getItems().get(t.getTablePosition().getRow())).setFechaNacimiento(t.getNewValue());
+			}
+		});
+		puestoPersona.setOnEditCommit(new EventHandler<CellEditEvent<Persona, String>>() {
+			public void handle(CellEditEvent<Persona, String> t) {
+				for(String s : Controlador7.puestosTrabajo) {
+					if(s.equalsIgnoreCase(t.getNewValue())) {
+						aux=true;
+					}
+				}
+				if(aux) {
+					((Persona) t.getTableView().getItems().get(t.getTablePosition().getRow())).setPuestoTrabajo(t.getNewValue());
+				}
+				else {
+					((Persona) t.getTableView().getItems().get(t.getTablePosition().getRow())).setPuestoTrabajo(t.getOldValue());
+				}
+				aux=false;
+			}
+		});
+		trabajandoPersona.setOnEditCommit(new EventHandler<CellEditEvent<Persona, CheckBox>>() {
+			public void handle(CellEditEvent<Persona, CheckBox> t) {
+				((Persona) t.getTableView().getItems().get(t.getTablePosition().getRow())).setTrabajando(true);
+			}
+		});
+		
+
 	}
 
 	public void cargarDatos() {
@@ -100,7 +156,7 @@ public class Controlador6 implements Initializable {
 		apellidosPersona.setCellValueFactory(pvApellidos);
 		PropertyValueFactory pvUser = new PropertyValueFactory<Persona, String>("user");
 		userPersona.setCellValueFactory(pvUser);
-		PropertyValueFactory pvFecha = new PropertyValueFactory<Persona, String>("fechaNacimiento");
+		PropertyValueFactory pvFecha = new PropertyValueFactory<Persona, Date>("fechaNacimiento");
 		fechaPersona.setCellValueFactory(pvFecha);
 		PropertyValueFactory pvPuesto = new PropertyValueFactory<Persona, String>("puestoTrabajo");
 		puestoPersona.setCellValueFactory(pvPuesto);
@@ -108,7 +164,6 @@ public class Controlador6 implements Initializable {
 		trabajandoPersona.setCellValueFactory(pvTrabajando);
 
 		tabla.setItems(personas);
-		// personasList.removeAll(personasList);
 
 		// idPersona.setCellFactory(TextFieldTableCell.forTableColumn());
 		dniPersona.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -116,7 +171,7 @@ public class Controlador6 implements Initializable {
 		apellidosPersona.setCellFactory(TextFieldTableCell.forTableColumn());
 		apellidosPersona.setCellFactory(TextFieldTableCell.forTableColumn());
 		userPersona.setCellFactory(TextFieldTableCell.forTableColumn());
-		// fechaPersona.setCellFactory(TextFieldTableCell.forTableColumn());
+		//fechaPersona.setCellFactory(TextFieldTableCell.forTableColumn());
 		puestoPersona.setCellFactory(TextFieldTableCell.forTableColumn());
 		// trabajandoPersona.setCellFactory(TextFieldTableCell.forTableColumn());
 
@@ -126,13 +181,13 @@ public class Controlador6 implements Initializable {
 	private void cargarDatosDefault() {
 		Main.contador2 += 1;
 		Persona p1 = new Persona(1, "48025635x", "Pepe", "Gonzalez", "pepe.gonzalez", "123456",
-				Date.valueOf("1998-11-09"), "caja");
+				Date.valueOf("1998-11-09"), "caja",si);
 		Persona p2 = new Persona(2, "46326594v", "Laura", "Perez", "laura.perez", "1524258", Date.valueOf("2000-09-08"),
-				"reparticion");
+				"reparticion",no);
 		Persona p3 = new Persona(3, "46546519e", "Montse", "Monteagudo", "montse.monteagudo", "634654561",
-				Date.valueOf("1978-02-15"), "reposicion");
+				Date.valueOf("1978-02-15"), "reposicion",no);
 		Persona p4 = new Persona(4, "46416541t", "Julio", "Aguirre", "julio.aguirre", "16741654",
-				Date.valueOf("1995-01-18"), "caja");
+				Date.valueOf("1995-01-18"), "caja",no);
 
 		personasList.add(p1);
 		personasList.add(p2);
@@ -151,7 +206,7 @@ public class Controlador6 implements Initializable {
 		apellidosPersona.setCellValueFactory(pvApellidos);
 		PropertyValueFactory pvUser = new PropertyValueFactory<Persona, String>("user");
 		userPersona.setCellValueFactory(pvUser);
-		PropertyValueFactory pvFecha = new PropertyValueFactory<Persona, String>("fechaNacimiento");
+		PropertyValueFactory pvFecha = new PropertyValueFactory<Persona, Date>("fechaNacimiento");
 		fechaPersona.setCellValueFactory(pvFecha);
 		PropertyValueFactory pvPuesto = new PropertyValueFactory<Persona, String>("puestoTrabajo");
 		puestoPersona.setCellValueFactory(pvPuesto);
@@ -159,7 +214,6 @@ public class Controlador6 implements Initializable {
 		trabajandoPersona.setCellValueFactory(pvTrabajando);
 
 		tabla.setItems(personas);
-		// personasList.removeAll(personasList);
 
 		// idPersona.setCellFactory(TextFieldTableCell.forTableColumn());
 		dniPersona.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -167,10 +221,11 @@ public class Controlador6 implements Initializable {
 		apellidosPersona.setCellFactory(TextFieldTableCell.forTableColumn());
 		apellidosPersona.setCellFactory(TextFieldTableCell.forTableColumn());
 		userPersona.setCellFactory(TextFieldTableCell.forTableColumn());
-		// fechaPersona.setCellFactory(TextFieldTableCell.forTableColumn());
+		//fechaPersona.setCellFactory(TextFieldTableCell.forTableColumn());
 		puestoPersona.setCellFactory(TextFieldTableCell.forTableColumn());
 		// trabajandoPersona.setCellFactory(TextFieldTableCell.forTableColumn());
-
+		
+		
 		tabla.setEditable(true);
 	}
 
@@ -185,7 +240,6 @@ public class Controlador6 implements Initializable {
 			tabla.setItems(personas);
 		}
 	}
-	
 
 	@FXML
 	public void volverAtras() {
@@ -222,28 +276,22 @@ public class Controlador6 implements Initializable {
 		selecSingIndex = seleccion.getSelectedIndex();
 		personasList.remove(selecSingIndex);
 		personas.remove(selecSingIndex);
-	    recargarTabla();
-		
+		recargarTabla();
+
 		Main.cerrarScene(6);
 		Main.abrir2Scene(6);
 
 		// **** MULTIPLE ROW DELETE ????
-		/*tabla.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-		seleccion = tabla.getSelectionModel();
-		selecIndex = seleccion.getSelectedIndices();
-		tam = selecIndex.size();
-		int indice = 0;
-		for (int i = tam - 1; i >= 0; i--) {
-			indice = selecIndex.get(i);
-			personasList.remove(indice);
-			personas.remove(indice);
-		}
-		recargarTabla();
-		
-		Main.cerrarScene(6);
-		Main.abrir2Scene(6);
-		*/
-		
+		/*
+		 * tabla.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE); seleccion
+		 * = tabla.getSelectionModel(); selecIndex = seleccion.getSelectedIndices(); tam
+		 * = selecIndex.size(); int indice = 0; for (int i = tam - 1; i >= 0; i--) {
+		 * indice = selecIndex.get(i); personasList.remove(indice);
+		 * personas.remove(indice); } recargarTabla();
+		 * 
+		 * Main.cerrarScene(6); Main.abrir2Scene(6);
+		 */
+
 	}
 
 }

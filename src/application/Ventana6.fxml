@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
@@ -37,6 +39,14 @@
             <TableColumn fx:id="puestoPersona" prefWidth="207.0" text="Puesto" />
             <TableColumn fx:id="trabajandoPersona" minWidth="0.0" prefWidth="140.0" text="Trabajando?" />
         </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#deleteWorker" text="Borrar" />
+                  <MenuItem mnemonicParsing="false" onAction="#addWorker" text="Añadir" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
       </TableView>
    </children>
 </AnchorPane>

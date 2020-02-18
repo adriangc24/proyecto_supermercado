@@ -22,7 +22,7 @@ public class Persona {
 	}
 
 	public Persona(int id, String dni, String nombre, String apellidos, String user, String pass,
-			Date fechaNacimiento, String puestoTrabajo, CheckBox trabajando, String sexo) {
+			Date fechaNacimiento, String puestoTrabajo, CheckBox trabajando) {
 		super();
 		this.id = id;
 		this.dni = dni;
@@ -32,36 +32,7 @@ public class Persona {
 		this.pass = pass;
 		this.fechaNacimiento = fechaNacimiento;
 		this.puestoTrabajo = puestoTrabajo;
-		trabajando = new CheckBox();
-		this.sexo = sexo;
-	}
-
-	public Persona(String dni, String nombre, String apellidos, String user, String pass, Date fechaNacimiento,
-			String puestoTrabajo, CheckBox trabajando, String sexo) {
-		super();
-		this.dni = dni;
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.user = user;
-		this.pass = pass;
-		this.fechaNacimiento = fechaNacimiento;
-		this.puestoTrabajo = puestoTrabajo;
-		trabajando = new CheckBox();
-		this.sexo = sexo;
-	}
-
-	public Persona(int id, String dni, String nombre, String apellidos, String user, String pass,
-			Date fechaNacimiento, String puestoTrabajo) {
-		super();
-		this.id = id;
-		this.dni = dni;
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.user = user;
-		this.pass = pass;
-		this.fechaNacimiento = fechaNacimiento;
-		this.puestoTrabajo = puestoTrabajo;
-		trabajando = new CheckBox();
+		this.trabajando = trabajando;
 	}
 
 	public int getId() {
@@ -128,28 +99,29 @@ public class Persona {
 		this.puestoTrabajo = puestoTrabajo;
 	}
 
-	public boolean isTrabajando() {
-		if (trabajando != null) {
-			if (trabajando.isSelected())
-				return true;
-			else
-				return false;
-		} else {
-			return false;
+	public CheckBox isTrabajando() {
+		try {
+		CheckBox c = trabajando;
+		System.out.println(c.isSelected());
+		return c;
+		}
+		catch(Exception e) {
+			System.out.println("error");
+			return new CheckBox();
 		}
 
 	}
 
-	public void setTrabajando(CheckBox trabajando) {
-		this.trabajando = trabajando;
+	public void setTrabajando(boolean trabajando) {
+		this.trabajando.setSelected(trabajando);
 	}
 
 	public static CheckBox setEstado(boolean estado) {
 		CheckBox c = new CheckBox();
-		/*if (estado)
+		if (estado)
 			c.setSelected(true);
 		else
-			c.setSelected(false);*/
+			c.setSelected(false);
 
 		return c;
 	}

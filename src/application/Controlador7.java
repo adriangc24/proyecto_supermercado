@@ -65,7 +65,9 @@ public class Controlador7 implements Initializable {
 	RadioButton rbHombre;
 	@FXML
 	RadioButton rbMujer;
-
+	static String[] puestosTrabajo = {"caja",
+			"reposicion",
+			"reparticion"};
 	@FXML
 	ImageView okButton3;
 	Persona p = null;
@@ -74,11 +76,9 @@ public class Controlador7 implements Initializable {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		puestoTrabajo.getItems().addAll(
-				"caja",
-				"reposicion",
-				"reparticion"
-				);
+		for(String s : puestosTrabajo) {
+			puestoTrabajo.getItems().add(s);
+		}
 		getLastId();
 		System.out.println("Last id: " + lastId);
 
