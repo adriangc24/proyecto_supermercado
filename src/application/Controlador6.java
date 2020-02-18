@@ -68,7 +68,7 @@ public class Controlador6 implements Initializable {
 	TableColumn<Persona, CheckBox> trabajandoPersona;
 
 	static Producto p;
-	static MultipleSelectionModel<String> seleccion;
+	static MultipleSelectionModel<Persona> seleccion;
 	static ObservableList<Integer> selecIndex;
 	static int selecSingIndex;
 	static ArrayList<Persona> personasList = new ArrayList();
@@ -78,7 +78,7 @@ public class Controlador6 implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		if (Main.contador==0) {
+		if (Main.contador2==0) {
 			System.out.println(Main.contador);
 			cargarDatosDefault();
 		} else
@@ -122,7 +122,7 @@ public class Controlador6 implements Initializable {
 	}
 
 	private void cargarDatosDefault() {
-		Main.contador += 1;
+		Main.contador2 += 1;
 		Persona p1 = new Persona(1, "48025635x", "Pepe", "Gonzalez", "pepe.gonzalez", "123456",
 				Date.valueOf("1998-11-09"), "caja");
 		Persona p2 = new Persona(2, "46326594v", "Laura", "Perez", "laura.perez", "1524258", Date.valueOf("2000-09-08"),
@@ -214,17 +214,25 @@ public class Controlador6 implements Initializable {
 
 	@FXML
 	public void deleteWorker() {
-		tabla.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-		selecIndex = seleccion.getSelectedIndices();
-		tam = selecIndex.size();
+		//Persona selectedItem = tabla.getSelectionModel().getSelectedItem();
+	    //tabla.getItems().remove(selectedItem);
+		tabla.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+		seleccion = tabla.getSelectionModel();
+		//selecIndex = seleccion.getSelectedIndices();
+		selecSingIndex = seleccion.getSelectedIndex();
+		/*tam = selecIndex.size();
 		int indice = 0;
 		for (int i = tam - 1; i >= 0; i--) {
 			indice = selecIndex.get(i);
 			personasList.remove(indice);
 			personasList.remove(indice);
-		}
-		Main.cerrarScene(3);
-		Main.abrir2Scene(3);
+		}*/
+		personasList.remove(selecSingIndex);
+		personas.remove(selecSingIndex);
+	    recargarTabla();
+		
+		Main.cerrarScene(6);
+		Main.abrir2Scene(6);
 	}
 
 }

@@ -23,7 +23,7 @@ public class Main extends Application {
 	static Scene scene;
 	static Stage stage;
 	static Parent root;
-	static int contador = 0;
+	static int contador,contador2 = 0;
 
 	@Override
 	public void start(Stage primaryStage) {
