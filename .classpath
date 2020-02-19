@@ -19,5 +19,36 @@
 	<classpathentry kind="lib" path="jars/spring-jcl-5.2.3.RELEASE.jar"/>
 	<classpathentry kind="lib" path="jars/tool-1.0.0-v_771.jar"/>
 	<classpathentry kind="lib" path="jars/spring-beans-5.2.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="jars/access-bridge-64.jar"/>
+	<classpathentry kind="lib" path="jars/castor-core-1.4.1.jar"/>
+	<classpathentry kind="lib" path="jars/castor-xml-1.4.1.jar"/>
+	<classpathentry kind="lib" path="jars/charsets.jar"/>
+	<classpathentry kind="lib" path="jars/cldrdata.jar"/>
+	<classpathentry kind="lib" path="jars/deploy.jar"/>
+	<classpathentry kind="lib" path="jars/dnsns.jar"/>
+	<classpathentry kind="lib" path="jars/jaccess.jar"/>
+	<classpathentry kind="lib" path="jars/jasperreports-6.11.0.jar"/>
+	<classpathentry kind="lib" path="jars/jasperreports-chart-customizers-6.11.0.jar"/>
+	<classpathentry kind="lib" path="jars/jasperreports-chart-themes-6.11.0.jar"/>
+	<classpathentry kind="lib" path="jars/jasperreports-fonts-6.11.0.jar"/>
+	<classpathentry kind="lib" path="jars/jasperreports-functions-6.11.0.jar"/>
+	<classpathentry kind="lib" path="jars/jasperreports-metadata-6.11.0.jar"/>
+	<classpathentry kind="lib" path="jars/javaws.jar"/>
+	<classpathentry kind="lib" path="jars/jce.jar"/>
+	<classpathentry kind="lib" path="jars/jfr.jar"/>
+	<classpathentry kind="lib" path="jars/jfxrt.jar"/>
+	<classpathentry kind="lib" path="jars/jfxswt.jar"/>
+	<classpathentry kind="lib" path="jars/jsse.jar"/>
+	<classpathentry kind="lib" path="jars/localedata.jar"/>
+	<classpathentry kind="lib" path="jars/management-agent.jar"/>
+	<classpathentry kind="lib" path="jars/nashorn.jar"/>
+	<classpathentry kind="lib" path="jars/plugin.jar"/>
+	<classpathentry kind="lib" path="jars/resources.jar"/>
+	<classpathentry kind="lib" path="jars/rt.jar"/>
+	<classpathentry kind="lib" path="jars/sunec.jar"/>
+	<classpathentry kind="lib" path="jars/sunjce_provider.jar"/>
+	<classpathentry kind="lib" path="jars/sunmscapi.jar"/>
+	<classpathentry kind="lib" path="jars/sunpkcs11.jar"/>
+	<classpathentry kind="lib" path="jars/zipfs.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
