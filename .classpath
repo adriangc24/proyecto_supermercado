@@ -3,13 +3,21 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/Adri/OneDrive/CLASE/AMS2/M7 - INTERFICIES ( DESPEJA )/2/com.lowagie.text-2.1.7.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Adri/OneDrive/CLASE/AMS2/M7 - INTERFICIES ( DESPEJA )/2/commons.collections-3.2.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Adri/OneDrive/CLASE/AMS2/M7 - INTERFICIES ( DESPEJA )/2/commons-beanutils-1.8.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Adri/OneDrive/CLASE/AMS2/M7 - INTERFICIES ( DESPEJA )/2/commons-digester-2.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Adri/OneDrive/CLASE/AMS2/M7 - INTERFICIES ( DESPEJA )/2/commons-javaflow.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Adri/OneDrive/CLASE/AMS2/M7 - INTERFICIES ( DESPEJA )/2/commons-logging-1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Adri/OneDrive/CLASE/AMS2/M7 - INTERFICIES ( DESPEJA )/2/jasperreports-6.3.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Adri/OneDrive/CLASE/AMS2/M7 - INTERFICIES ( DESPEJA )/2/mysql-connector-java-5.1.40-bin.jar"/>
+	<classpathentry kind="lib" path="jars/com.lowagie.text-2.1.7.jar"/>
+	<classpathentry kind="lib" path="jars/commons-beanutils-1.8.3.jar"/>
+	<classpathentry kind="lib" path="jars/commons-digester-2.1.jar"/>
+	<classpathentry kind="lib" path="jars/commons-javaflow.jar"/>
+	<classpathentry kind="lib" path="jars/commons-logging-1.1.jar"/>
+	<classpathentry kind="lib" path="jars/commons.collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="jars/jasperreports-6.3.0.jar"/>
+	<classpathentry kind="lib" path="jars/mysql-connector-java-5.1.40-bin.jar"/>
+	<classpathentry kind="lib" path="jars/jfoenix-8.0.8.jar"/>
+	<classpathentry kind="lib" path="jars/jasper-compiler-jdt.jar"/>
+	<classpathentry exported="true" kind="con" path="net.sf.jasperreports.JR_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="com.jaspersoft.server.JRS_CONTAINER"/>
+	<classpathentry kind="lib" path="jars/spring-core-5.2.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="jars/spring-jcl-5.2.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="jars/tool-1.0.0-v_771.jar"/>
+	<classpathentry kind="lib" path="jars/spring-beans-5.2.3.RELEASE.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -20,7 +20,7 @@
             <Image url="@../../login-square-arrow-button-outline_icon-icons.com_73220.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtUser" layoutX="590.0" layoutY="457.0" prefHeight="71.0" prefWidth="630.0">
+      <TextField fx:id="txtUser" layoutX="590.0" layoutY="457.0" prefHeight="71.0" prefWidth="630.0" stylesheets="@application.css">
          <font>
             <Font size="30.0" />
          </font>
@@ -35,7 +35,7 @@
             <Font size="34.0" />
          </font>
       </Text>
-      <PasswordField fx:id="txtPass" layoutX="590.0" layoutY="656.0" prefHeight="71.0" prefWidth="630.0">
+      <PasswordField fx:id="txtPass" layoutX="590.0" layoutY="656.0" prefHeight="71.0" prefWidth="630.0" stylesheets="@application.css">
          <font>
             <Font size="30.0" />
          </font>

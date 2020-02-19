@@ -33,7 +33,7 @@ public class Controlador implements Initializable{
 	public static Stage primaryStage;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
+		txtUser.getStyleClass().add("text-fieldCustom");
 	
 	}
 	

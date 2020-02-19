@@ -18,6 +18,7 @@ import javafx.event.EventHandler;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -32,6 +33,9 @@ import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TreeTableCell;
+import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.cell.CheckBoxTreeTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.control.Alert.AlertType;
@@ -42,6 +46,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import javafx.util.Callback;
 import modal.Persona;
 import modal.Producto;
 
@@ -86,6 +91,7 @@ public class Controlador6 implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		si.setSelected(true);
 		no.setSelected(false);
+		
 		
 		if (Main.contador2 == 0) {
 			System.out.println(Main.contador);
@@ -173,7 +179,14 @@ public class Controlador6 implements Initializable {
 		userPersona.setCellFactory(TextFieldTableCell.forTableColumn());
 		//fechaPersona.setCellFactory(TextFieldTableCell.forTableColumn());
 		puestoPersona.setCellFactory(TextFieldTableCell.forTableColumn());
-		// trabajandoPersona.setCellFactory(TextFieldTableCell.forTableColumn());
+		/*trabajandoPersona.setCellFactory(new Callback<TreeTableColumn<Persona,CheckBox>,TreeTableCell<Persona,CheckBox>>() {
+		    @Override 
+		    public TreeTableCell<Persona,CheckBox> call( TreeTableColumn<Persona,CheckBox> p ) {
+		        CheckBoxTreeTableCell<Persona,CheckBox> cell = new CheckBoxTreeTableCell<Persona,CheckBox>();
+		        cell.setAlignment(Pos.CENTER);
+		        return cell;
+		    }
+		});*/
 
 		tabla.setEditable(true);
 	}
@@ -181,13 +194,13 @@ public class Controlador6 implements Initializable {
 	private void cargarDatosDefault() {
 		Main.contador2 += 1;
 		Persona p1 = new Persona(1, "48025635x", "Pepe", "Gonzalez", "pepe.gonzalez", "123456",
-				Date.valueOf("1998-11-09"), "caja",si);
+				Date.valueOf("1998-11-09"), "caja",new CheckBox());
 		Persona p2 = new Persona(2, "46326594v", "Laura", "Perez", "laura.perez", "1524258", Date.valueOf("2000-09-08"),
-				"reparticion",no);
+				"reparticion",new CheckBox());
 		Persona p3 = new Persona(3, "46546519e", "Montse", "Monteagudo", "montse.monteagudo", "634654561",
-				Date.valueOf("1978-02-15"), "reposicion",no);
+				Date.valueOf("1978-02-15"), "reposicion",new CheckBox());
 		Persona p4 = new Persona(4, "46416541t", "Julio", "Aguirre", "julio.aguirre", "16741654",
-				Date.valueOf("1995-01-18"), "caja",no);
+				Date.valueOf("1995-01-18"), "caja",new CheckBox());
 
 		personasList.add(p1);
 		personasList.add(p2);

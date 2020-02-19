@@ -1,0 +1,23 @@
+PROGRAMA CREADO POR: Adrián González Camacho
+--------------------------------------------
+Proyecto para practicar con JAVA FX.
+
+Elementos incorporados:
+-Tablas (editables, con checkbox, eliminables, persistencia en ejecución)
+-ListViews (editables, eliminables, persistencia en ejecución)
+-Botones con imaganes y css al ser focused cambia el color
+-Login y cierre de sesión
+-alerts de cierre de ventana y sesión
+-gestion de ventanas y scenes
+-Formularios:
+	Textfields en login con css al ser focused, con promptText al editar un producto
+	ComboBox
+	RadioButtons
+-Menu Bar con menuItems
+-Menu contextual sobre la gestión de personal
+-Jasperreports
+	
+	
+
+
+

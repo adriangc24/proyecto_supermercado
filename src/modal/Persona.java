@@ -3,6 +3,7 @@ package modal;
 import java.awt.Checkbox;
 import java.sql.Date;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.CheckBox;
 
 public class Persona {
@@ -14,7 +15,7 @@ public class Persona {
 	String pass;
 	Date fechaNacimiento;
 	String puestoTrabajo;
-	CheckBox trabajando;
+	CheckBox trabajando = new CheckBox();
 	String sexo;
 
 	public Persona() {
@@ -32,6 +33,7 @@ public class Persona {
 		this.pass = pass;
 		this.fechaNacimiento = fechaNacimiento;
 		this.puestoTrabajo = puestoTrabajo;
+		trabajando.setAlignment(Pos.CENTER);
 		this.trabajando = trabajando;
 	}
 
@@ -100,14 +102,15 @@ public class Persona {
 	}
 
 	public CheckBox isTrabajando() {
-		try {
 		CheckBox c = trabajando;
+		c.setAlignment(Pos.CENTER);
+		try {
 		System.out.println(c.isSelected());
 		return c;
 		}
 		catch(Exception e) {
 			System.out.println("error");
-			return new CheckBox();
+			return c;
 		}
 
 	}
